@@ -17,9 +17,9 @@ public class BasicDiceRoll implements DiceRoll {
 	 * @param sides die Anzahl der Seiten des Würfels
 	 */
 	public BasicDiceRoll(int sides) {
-		result = 0;
 		if (sides < 1) throw new IllegalArgumentException("die Seitenanzahl "+sides+" ist nicht gültig");
 		this.sides = sides;
+		roll();
 	}
 
 	/**
