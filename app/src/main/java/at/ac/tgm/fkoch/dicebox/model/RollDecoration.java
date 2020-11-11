@@ -20,7 +20,7 @@ public abstract class RollDecoration implements DiceRoll {
 	/**
 	 * @return den zugrundeliegenden Würfelwurf
 	 */
-	public DiceRoll getRoll() {
+	public DiceRoll getDiceRoll() {
 		return sourceRoll;
 	}
 
