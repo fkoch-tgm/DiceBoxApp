@@ -7,6 +7,7 @@ import java.util.Random;
  * @author Felix Koch
  * @version 2020-11-11
  */
+@SuppressWarnings("NullableProblems")
 public class BasicDiceRoll implements DiceRoll {
 
     private int result;
@@ -27,7 +28,7 @@ public class BasicDiceRoll implements DiceRoll {
 	 */
 	public void roll() {
 	    Random random = new Random();
-		result = random.nextInt(sides +1)+1;
+		result = random.nextInt(sides)+1;
 	}
 
 	/**
