@@ -74,15 +74,15 @@ public class MainActivity extends AppCompatActivity {
             int amount = txt.equals("")?0:Integer.parseInt(txt);
             die = new BonusMalus(die, getText(R.string.abilityText).toString(), amount);
         }
-        if(itemCheck.isChecked()) {
-            String txt = itemBonus.getText().toString();
-            int amount = txt.equals("")?0:Integer.parseInt(txt);
-            die = new BonusMalus(die, getText(R.string.itemText).toString(), amount);
-        }
         if(profCheck.isChecked()) {
             String txt = profBonus.getText().toString();
             int amount = txt.equals("")?0:Integer.parseInt(txt);
             die = new BonusMalus(die, getText(R.string.profText).toString(), amount);
+        }
+        if(itemCheck.isChecked()) {
+            String txt = itemBonus.getText().toString();
+            int amount = txt.equals("")?0:Integer.parseInt(txt);
+            die = new BonusMalus(die, getText(R.string.itemText).toString(), amount);
         }
 
     }
