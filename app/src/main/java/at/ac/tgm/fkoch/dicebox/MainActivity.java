@@ -6,6 +6,11 @@ import at.ac.tgm.fkoch.dicebox.model.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
+/**
+ * Die Aktivität der Würfel-App
+ * @author Felix Koch
+ * @version 2020-11-25
+ */
 public class MainActivity extends AppCompatActivity {
     private TextView display;
     private TextView description;
@@ -40,13 +45,18 @@ public class MainActivity extends AppCompatActivity {
         itemCheck = findViewById(R.id.checkItem);
         itemCheck.setOnCheckedChangeListener((a,b)-> updateDie());
 
+        // TODO fix updateing after text-input-change
         abilityBonus = findViewById(R.id.abilityBonus);
+        abilityBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
         profBonus = findViewById(R.id.profBonus);
+        profBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
         itemBonus = findViewById(R.id.itemBonus);
+        itemBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
     }
 
     /**
      * Rolls the die
+     * @param view not used
      */
     public void rollDie(View view) {
         die.roll();
@@ -54,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
         description.setText(die.toString());
     }
 
+    /**
+     * Updates the die, according to the selected options
+     */
     private void updateDie() {
         // select advantage
         switch (advGrp.getCheckedRadioButtonId()) {
