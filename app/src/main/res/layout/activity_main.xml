@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberSigned"
                 android:ems="10"
-                android:id="@+id/editTextNumberSigned5"
+                android:id="@+id/profBonus"
                 android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@id/checkBoxBarrier"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@+id/checkProficiency"
                 app:layout_constraintBottom_toBottomOf="@+id/checkProficiency" android:textSize="14sp"
@@ -68,7 +68,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:id="@+id/editTextNumberSigned6"
+                android:id="@+id/itemBonus"
                 android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@id/checkBoxBarrier"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@+id/checkItem"
                 app:layout_constraintBottom_toBottomOf="@+id/checkItem" android:textSize="14sp"
@@ -90,23 +90,23 @@
         <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/radioGroup2"
+                android:id="@+id/advantageGroup"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/textAdvantage"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp" android:checkedButton="@id/normalBtn">
             <RadioButton
                     android:text="@string/noAdvText"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/radioButton"
+                    android:layout_height="wrap_content" android:id="@+id/normalBtn"
                     tools:layout_editor_absoluteY="32dp" android:checked="true"/>
             <RadioButton
                     android:text="@string/advText"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/radioButton2"
+                    android:layout_height="wrap_content" android:id="@+id/advantageBtn"
             />
             <RadioButton
                     android:text="@string/disadvText"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/radioButton3"
+                    android:layout_height="wrap_content" android:id="@+id/disadvantageBtn"
                     tools:layout_editor_absoluteY="219dp"/>
         </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
