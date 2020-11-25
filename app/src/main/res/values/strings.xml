@@ -9,4 +9,16 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+	<string name="advantage_text">Äußere Umstände</string>
+	<string name="bonusText">Boni:</string>
+	<string name="abilityText">Ability</string>
+	<string name="profText">Proficiency</string>
+	<string name="itemText">Item</string>
+	<string name="abilityHint">Ability Bonus</string>
+	<string name="profHint">Proficiency Bonus</string>
+	<string name="itemHint">Item Bonus</string>
+	<string name="noAdvText">Normal</string>
+	<string name="advText">Advantage</string>
+	<string name="disadvText">Disadvantage</string>
+	<string name="rollBtnText">Würfeln</string>
 </resources>
