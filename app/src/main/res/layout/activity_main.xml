@@ -24,18 +24,18 @@
                 android:text="@string/profText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/checkProficiency" app:layout_constraintTop_toBottomOf="@+id/checkAbility"
+                android:id="@+id/checkProficiency" app:layout_constraintTop_toBottomOf="@id/checkAbility"
                 app:layout_constraintStart_toStartOf="parent"/>
         <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/checkAbility"
-                app:layout_constraintTop_toBottomOf="@+id/textBoni" android:layout_marginTop="8dp"
-                android:text="@string/abilityText" app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/textBoni" android:layout_marginTop="8dp"
+                android:text="@string/abilityText" app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/checkAbility"/>
         <CheckBox
                 android:text="@string/itemText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/checkItem"
-                app:layout_constraintTop_toBottomOf="@+id/checkProficiency"
+                app:layout_constraintTop_toBottomOf="@id/checkProficiency"
                 app:layout_constraintStart_toStartOf="parent"/>
         <androidx.constraintlayout.widget.Barrier android:layout_width="wrap_content"
                                                   android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/checkBoxBarrier" android:layout_marginStart="8dp"
                 app:layout_constraintTop_toTopOf="@+id/checkAbility"
-                app:layout_constraintBottom_toBottomOf="@+id/checkAbility" android:id="@+id/abilityBonus"
+                app:layout_constraintBottom_toBottomOf="@id/checkAbility" android:id="@+id/abilityBonus"
                 android:importantForAutofill="no"
                 android:hint="@string/abilityHint" android:textSize="14sp"/>
         <EditText
@@ -128,13 +128,149 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintTop_toTopOf="@id/topBarrier" android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:textAlignment="center"/>
+            android:textAlignment="center" android:textColor="@color/colorPrimary"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/descriptionText"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/resultDisplay"
             android:layout_marginTop="8dp" android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+    <View
+            android:id="@+id/divider"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="@color/cardview_dark_background"
+            tools:layout_editor_absoluteX="1dp" android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/damageLayout" android:layout_marginBottom="8dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/damageLayout" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/descriptionText" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/spinner"
+                android:entries="@array/avab_dice"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/titleDie"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/titleDie"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/titleDieText" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"/>
+        <CheckBox
+                android:text="@string/critText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/checkCritical"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/spinner" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"/>
+        <androidx.constraintlayout.widget.Barrier android:layout_width="wrap_content"
+                                                  android:layout_height="wrap_content"
+                                                  android:id="@+id/dmgbarrier" app:barrierDirection="right"
+                                                  tools:layout_editor_absoluteX="411dp"
+                                                  app:constraint_referenced_ids="titleDie,checkCritical,spinner"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" app:layout_constraintStart_toEndOf="@id/dmgbarrier"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="16dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+                android:id="@+id/dmgboniLayout">
+
+            <TextView
+                    android:text="@string/bonusText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/dmgtextBoni"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            <CheckBox
+                    android:text="@string/profText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dmgcheckProficiency" app:layout_constraintTop_toBottomOf="@id/dmgcheckAbility"
+                    app:layout_constraintStart_toStartOf="parent"/>
+            <CheckBox
+                    android:layout_width="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/dmgtextBoni" android:layout_marginTop="8dp"
+                    android:text="@string/abilityText" app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/dmgcheckAbility"/>
+            <CheckBox
+                    android:text="@string/itemText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/dmgcheckItem"
+                    app:layout_constraintTop_toBottomOf="@id/dmgcheckProficiency"
+                    app:layout_constraintStart_toStartOf="parent"/>
+            <androidx.constraintlayout.widget.Barrier android:layout_width="wrap_content"
+                                                      android:layout_height="wrap_content"
+                                                      android:id="@+id/dmgcheckBoxBarrier" app:barrierDirection="right"
+                                                      app:constraint_referenced_ids="dmgcheckProficiency,dmgcheckAbility,dmgcheckItem"
+                                                      tools:layout_editor_absoluteX="127dp"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberSigned"
+                    android:ems="10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/dmgcheckBoxBarrier" android:layout_marginStart="8dp"
+                    app:layout_constraintTop_toTopOf="@+id/dmgcheckAbility"
+                    app:layout_constraintBottom_toBottomOf="@id/dmgcheckAbility" android:id="@+id/dmgabilityBonus"
+                    android:importantForAutofill="no"
+                    android:hint="@string/abilityHint" android:textSize="14sp"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberSigned"
+                    android:ems="10"
+                    android:id="@+id/dmgprofBonus"
+                    android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@id/dmgcheckBoxBarrier"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/dmgcheckProficiency"
+                    app:layout_constraintBottom_toBottomOf="@+id/dmgcheckProficiency" android:textSize="14sp"
+                    android:importantForAutofill="no"
+                    android:hint="@string/profHint"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:id="@+id/dmgitemBonus"
+                    android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@id/dmgcheckBoxBarrier"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@+id/dmgcheckItem"
+                    app:layout_constraintBottom_toBottomOf="@+id/dmgcheckItem" android:textSize="14sp"
+                    android:importantForAutofill="no"
+                    android:hint="@string/itemHint" android:inputType="numberSigned"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.Barrier android:layout_width="wrap_content"
+                                                  android:layout_height="wrap_content"
+                                                  android:id="@+id/dmgVbarrier" app:barrierDirection="bottom"
+                                                  app:constraint_referenced_ids="dmgboniLayout,titleDie,checkCritical,spinner"
+                                                  tools:layout_editor_absoluteY="475dp"/>
+        <Button
+                android:text="@string/rollBtnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/rollDmg"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/dmgVbarrier"/>
+        <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content" android:id="@+id/dmgDisplay"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@id/dmgVbarrier"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/colorPrimary"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/dmgDescription"
+                app:layout_constraintTop_toBottomOf="@+id/dmgDisplay" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

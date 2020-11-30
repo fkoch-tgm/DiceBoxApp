@@ -21,4 +21,7 @@
 	<string name="advText">Advantage</string>
 	<string name="disadvText">Disadvantage</string>
 	<string name="rollBtnText">Würfeln</string>
+	<string name="damage_header">Schadens-Würfel</string>
+	<string name="titleDieText">Schadenswürfel</string>
+	<string name="critText">Kritisch</string>
 </resources>
