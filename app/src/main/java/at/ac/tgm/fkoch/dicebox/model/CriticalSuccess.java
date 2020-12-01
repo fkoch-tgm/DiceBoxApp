@@ -16,7 +16,7 @@ public class CriticalSuccess extends RollDecoration {
 	}
 
 	public String toString() {
-		return "Kritisch("+getResult()+")";
+		return "Kritisch("+super.getResult()+")";
 	}
 
 
