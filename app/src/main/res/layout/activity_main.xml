@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/textBoni" android:layout_marginTop="8dp"
                 android:text="@string/abilityText" app:layout_constraintStart_toStartOf="parent"
-                android:id="@+id/checkAbility"/>
+                android:id="@+id/checkAbility" android:layout_height="wrap_content"/>
         <CheckBox
                 android:text="@string/itemText"
                 android:layout_width="wrap_content"
@@ -135,13 +135,6 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/resultDisplay"
             android:layout_marginTop="8dp" android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
-    <View
-            android:id="@+id/divider"
-            android:layout_width="409dp"
-            android:layout_height="1dp"
-            android:background="@color/cardview_dark_background"
-            tools:layout_editor_absoluteX="1dp" android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/damageLayout" android:layout_marginBottom="8dp"/>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -152,7 +145,7 @@
 
         <Spinner
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/spinner"
+                android:layout_height="wrap_content" android:id="@+id/dmgSelectDie"
                 android:entries="@array/avab_dice"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/titleDie"/>
@@ -167,13 +160,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/checkCritical"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/spinner" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dmgSelectDie" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"/>
         <androidx.constraintlayout.widget.Barrier android:layout_width="wrap_content"
                                                   android:layout_height="wrap_content"
                                                   android:id="@+id/dmgbarrier" app:barrierDirection="right"
                                                   tools:layout_editor_absoluteX="411dp"
-                                                  app:constraint_referenced_ids="titleDie,checkCritical,spinner"/>
+                                                  app:constraint_referenced_ids="titleDie,checkCritical,dmgSelectDie"/>
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" app:layout_constraintStart_toEndOf="@id/dmgbarrier"
@@ -198,7 +191,7 @@
                     android:layout_width="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/dmgtextBoni" android:layout_marginTop="8dp"
                     android:text="@string/abilityText" app:layout_constraintStart_toStartOf="parent"
-                    android:id="@+id/dmgcheckAbility"/>
+                    android:id="@+id/dmgcheckAbility" android:layout_height="wrap_content"/>
             <CheckBox
                     android:text="@string/itemText"
                     android:layout_width="wrap_content"
@@ -247,7 +240,7 @@
         <androidx.constraintlayout.widget.Barrier android:layout_width="wrap_content"
                                                   android:layout_height="wrap_content"
                                                   android:id="@+id/dmgVbarrier" app:barrierDirection="bottom"
-                                                  app:constraint_referenced_ids="dmgboniLayout,titleDie,checkCritical,spinner"
+                                                  app:constraint_referenced_ids="dmgboniLayout,titleDie,checkCritical,dmgSelectDie"
                                                   tools:layout_editor_absoluteY="475dp"/>
         <Button
                 android:text="@string/rollBtnText"
@@ -255,7 +248,7 @@
                 android:layout_height="wrap_content" android:id="@+id/rollDmg"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp" android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@id/dmgVbarrier"/>
+                app:layout_constraintTop_toBottomOf="@id/dmgVbarrier" android:onClick="rollDMG"/>
         <TextView
                 android:layout_width="200dp"
                 android:layout_height="wrap_content" android:id="@+id/dmgDisplay"

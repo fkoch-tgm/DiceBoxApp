@@ -1,6 +1,7 @@
 package at.ac.tgm.fkoch.dicebox;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.*;
 import at.ac.tgm.fkoch.dicebox.model.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +22,20 @@ public class MainActivity extends AppCompatActivity {
     private EditText profBonus;
     private EditText itemBonus;
     private RadioGroup advGrp;
+
+    private Spinner dmgDieSelector;
+    private CheckBox checkCrit;
+    private TextView dmgdisplay;
+    private TextView dmgdescription;
+    private CheckBox dmgabilityCheck;
+    private CheckBox dmgprofCheck;
+    private CheckBox dmgitemCheck;
+    private EditText dmgabilityBonus;
+    private EditText dmgprofBonus;
+    private EditText dmgitemBonus;
+
     private DiceRoll die;
+    private DiceRoll dmgDie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +66,21 @@ public class MainActivity extends AppCompatActivity {
         profBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
         itemBonus = findViewById(R.id.itemBonus);
         itemBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
+
+        // Damage GUI Elements
+        dmgDieSelector = findViewById(R.id.dmgSelectDie);
+        dmgdisplay = findViewById(R.id.dmgDisplay);
+        dmgdescription = findViewById(R.id.dmgDescription);
+
+        dmgabilityCheck = findViewById(R.id.dmgcheckAbility);
+        dmgprofCheck = findViewById(R.id.dmgcheckProficiency);
+        dmgitemCheck = findViewById(R.id.dmgcheckItem);
+        dmgabilityBonus = findViewById(R.id.dmgabilityBonus);
+        dmgprofBonus = findViewById(R.id.dmgprofBonus);
+        dmgitemBonus = findViewById(R.id.dmgitemBonus);
+        checkCrit = findViewById(R.id.checkCritical);
+
+        setDMG();
     }
 
     /**
