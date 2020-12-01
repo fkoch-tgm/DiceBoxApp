@@ -128,4 +128,55 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
+    /**
+     * Called by the DMG Diceroll button
+     * @param view not used
+     */
+    public void rollDMG(View view) {
+        setDMG();
+        dmgDie.roll();
+        dmgdisplay.setText(String.valueOf(dmgDie.getResult()));
+        dmgdescription.setText(dmgDie.toString());
+    }
+
+    /**
+     * Sets the Damage-die to the selected parameters
+     */
+    public void setDMG() {
+        switch (dmgDieSelector.getSelectedItemPosition()) {
+            case 0: // d4
+            case 1: // d6
+            case 2: // d8
+            case 3: // d10
+            case 4: // d12
+                dmgDie = new BasicDiceRoll(4 + dmgDieSelector.getSelectedItemPosition()*2);
+                break;
+            case Spinner.INVALID_POSITION:
+            default:
+                Log.e("DMG", "setDMG: Spinner at invalid position");
+        }
+
+        // kritisch ja/nein?
+        if (checkCrit.isChecked()) dmgDie = new CriticalSuccess(dmgDie);
+
+
+        // Bonis Ability
+        if(dmgabilityCheck.isChecked()) {
+            String txt = dmgabilityBonus.getText().toString();
+            int amount = txt.equals("")?0:Integer.parseInt(txt);
+            dmgDie = new BonusMalus(dmgDie, getText(R.string.abilityText).toString(), amount);
+        }
+        if(dmgprofCheck.isChecked()) {
+            String txt = dmgprofBonus.getText().toString();
+            int amount = txt.equals("")?0:Integer.parseInt(txt);
+            dmgDie = new BonusMalus(dmgDie, getText(R.string.profText).toString(), amount);
+        }
+        if(dmgitemCheck.isChecked()) {
+            String txt = dmgitemBonus.getText().toString();
+            int amount = txt.equals("")?0:Integer.parseInt(txt);
+            dmgDie = new BonusMalus(dmgDie, getText(R.string.itemText).toString(), amount);
+        }
+    }
 }
