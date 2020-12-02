@@ -50,22 +50,21 @@ public class MainActivity extends AppCompatActivity {
         description = findViewById(R.id.descriptionText);
 
         advGrp = findViewById(R.id.advantageGroup);
-        advGrp.setOnCheckedChangeListener((btnGrp,checkedID)->updateDie());
+        //advGrp.setOnCheckedChangeListener((btnGrp,checkedID)->updateDie());
 
         abilityCheck = findViewById(R.id.checkAbility);
-        abilityCheck.setOnCheckedChangeListener((buttonView, isChecked) -> updateDie());
+        //abilityCheck.setOnCheckedChangeListener((buttonView, isChecked) -> updateDie());
         profCheck = findViewById(R.id.checkProficiency);
-        profCheck.setOnCheckedChangeListener((a,b)-> updateDie());
+        //profCheck.setOnCheckedChangeListener((a,b)-> updateDie());
         itemCheck = findViewById(R.id.checkItem);
-        itemCheck.setOnCheckedChangeListener((a,b)-> updateDie());
+        //itemCheck.setOnCheckedChangeListener((a,b)-> updateDie());
 
-        // TODO fix updateing after text-input-change
         abilityBonus = findViewById(R.id.abilityBonus);
-        abilityBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
+        //abilityBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
         profBonus = findViewById(R.id.profBonus);
-        profBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
+        //profBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
         itemBonus = findViewById(R.id.itemBonus);
-        itemBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
+        //itemBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
 
         // Damage GUI Elements
         dmgDieSelector = findViewById(R.id.dmgSelectDie);
@@ -88,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view not used
      */
     public void rollDie(View view) {
+        updateDie();
         die.roll();
         display.setText(String.valueOf(die.getResult()));
         description.setText(die.toString());
