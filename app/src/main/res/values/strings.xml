@@ -24,4 +24,5 @@
 	<string name="damage_header">Schadens-Würfel</string>
 	<string name="titleDieText">Schadenswürfel</string>
 	<string name="critText">Kritisch</string>
+	<string name="ability_menu_title">Ability Stats</string>
 </resources>
