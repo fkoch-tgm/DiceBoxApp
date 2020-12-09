@@ -15,11 +15,13 @@ public class CriticalSuccess extends RollDecoration {
 		super(roll);
 	}
 
+	@Override
 	public String toString() {
-		return "Kritisch("+super.getResult()+")";
+		return "Kritisch("+super.toString()+")";
 	}
 
 
+	@Override
 	public int getResult() {
 		return super.getResult()*2;
 	}

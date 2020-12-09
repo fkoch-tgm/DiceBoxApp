@@ -21,7 +21,7 @@ public class DisadvantageRoll extends RollDecoration {
 
 	@Override
 	public String toString() {
-		return " Disadvantage["+super.getResult()+", "+secondDice.getResult()+"]";
+		return " Disadvantage["+super.toString()+", "+secondDice.toString()+"]";
 	}
 
 	@Override

@@ -28,6 +28,7 @@ public class BonusMalus extends RollDecoration {
 		return super.toString()+" "+(amount<0?"-":"+")+amount+" ("+type+")";
 	}
 
+	@Override
 	public int getResult() {
 		return super.getResult()+amount;
 	}
