@@ -1,8 +1,11 @@
 package at.ac.tgm.fkoch.dicebox;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.*;
+import androidx.annotation.NonNull;
 import at.ac.tgm.fkoch.dicebox.model.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
@@ -178,5 +181,14 @@ public class MainActivity extends AppCompatActivity {
             int amount = txt.equals("")?0:Integer.parseInt(txt);
             dmgDie = new BonusMalus(dmgDie, getText(R.string.itemText).toString(), amount);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.abiMenuItem) {
+            Intent intent = new Intent(MainActivity.this,AbilityMenuActivity.class);
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
