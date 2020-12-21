@@ -32,6 +32,7 @@ public class AbilityMenuActivity extends AppCompatActivity {
             }
             catch (NumberFormatException ex) { value = 0; }
             e.putInt(key,value);
+            e.apply();
         }
         e.commit();
     }

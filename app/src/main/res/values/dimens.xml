@@ -1,4 +1,4 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="input_offset_value">128</dimen>
+    <dimen name="input_offset_value">128dp</dimen>
 </resources>

@@ -1,6 +1,7 @@
 package at.ac.tgm.fkoch.dicebox;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -17,12 +18,13 @@ import android.view.View;
  * @version 2020-11-25
  */
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG= "DEBUG-EK";
     private TextView display;
     private TextView description;
     private CheckBox abilityCheck;
     private CheckBox profCheck;
     private CheckBox itemCheck;
-    private EditText abilityBonus;
+    private Spinner abilityBonus;
     private EditText profBonus;
     private EditText itemBonus;
     private RadioGroup advGrp;
@@ -63,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
         itemCheck = findViewById(R.id.checkItem);
         //itemCheck.setOnCheckedChangeListener((a,b)-> updateDie());
 
-        abilityBonus = findViewById(R.id.abilityBonus);
+        //abilityBonus = findViewById(R.id.abilityBonus);
         //abilityBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
-        profBonus = findViewById(R.id.profBonus);
+        //profBonus = findViewById(R.id.profBonus);
         //profBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
         itemBonus = findViewById(R.id.itemBonus);
         //itemBonus.setOnEditorActionListener((v, actionId, event) -> {updateDie(); return true;});
@@ -102,14 +104,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.i(TAG, "onResume: ");
 
         // Setup Spinner
-        Spinner abilityBonus = findViewById(R.id.abilityBonus);
+        abilityBonus = findViewById(R.id.abilityBonus);
+        abilityBonus.setAdapter(null);
+        SharedPreferences p = getSharedPreferences(AbilityMenuActivity.PREF_KEY,MODE_PRIVATE);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item);
-        for (int i = 0; i < AbilityMenuActivity.ABIL_KEYs.length; i++) {
-
-            // Todo setup
+        for (int i = 1; i < AbilityMenuActivity.ABIL_KEYs.length; i++) {
+            String desc= getText(AbilityMenuActivity.ABIL_KEYs[i]).toString();
+            int ival = p.getInt(desc,0);
+            String val = ival<0?"-":"+"+ival;
+            adapter.add(desc+"("+val+")");
         }
+        abilityBonus.setAdapter(adapter);
     }
 
     /**
@@ -142,14 +150,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Bonis Ability
         if(abilityCheck.isChecked()) {
-            String txt = abilityBonus.getText().toString();
-            int amount = txt.equals("")?0:Integer.parseInt(txt);
-            die = new BonusMalus(die, getText(R.string.abilityText).toString(), amount);
+            //String txt = abilityBonus.getText().toString();
+            //int amount = txt.equals("")?0:Integer.parseInt(txt);
+            //die = new BonusMalus(die, getText(R.string.abilityText).toString(), amount);
         }
         if(profCheck.isChecked()) {
+            /*
             String txt = profBonus.getText().toString();
             int amount = txt.equals("")?0:Integer.parseInt(txt);
             die = new BonusMalus(die, getText(R.string.profText).toString(), amount);
+            */
         }
         if(itemCheck.isChecked()) {
             String txt = itemBonus.getText().toString();
