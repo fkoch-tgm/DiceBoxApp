@@ -25,4 +25,12 @@
 	<string name="titleDieText">Schadenswürfel</string>
 	<string name="critText">Kritisch</string>
 	<string name="ability_menu_title">Ability Stats</string>
+    <string name="strength_code">STR</string>
+	<string name="dex_code">DEX</string>
+	<string name="con_code">CON</string>
+	<string name="int_code">INT</string>
+	<string name="wis_code">WIS</string>
+	<string name="char_code">CHR</string>
+    <string name="save_text">Speichern</string>
+	<string name="return_btn_txt">Zurück</string>
 </resources>

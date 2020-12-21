@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.*;
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import at.ac.tgm.fkoch.dicebox.model.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
@@ -83,6 +84,32 @@ public class MainActivity extends AppCompatActivity {
         checkCrit = findViewById(R.id.checkCritical);
 
         setDMG();
+
+        // setup toolbar
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setOnMenuItemClickListener(item -> {
+            if (item.getItemId() == R.id.abiMenuItem) {
+                Intent intent = new Intent(MainActivity.this,AbilityMenuActivity.class);
+                startActivity(intent);
+                Log.i("DEBUG-EK", "onOptionsItemSelected: fin");
+            }
+            return false;
+        });
+        //setSupportActionBar(toolbar); hides my button
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Setup Spinner
+        Spinner abilityBonus = findViewById(R.id.abilityBonus);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item);
+        for (int i = 0; i < AbilityMenuActivity.ABIL_KEYs.length; i++) {
+
+            // Todo setup
+        }
     }
 
     /**
@@ -185,10 +212,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.abiMenuItem) {
-            Intent intent = new Intent(MainActivity.this,AbilityMenuActivity.class);
-
-        }
+        Log.i("DEBUG-EK", "onOptionsItemSelected: beg");
         return super.onOptionsItemSelected(item);
     }
 }
