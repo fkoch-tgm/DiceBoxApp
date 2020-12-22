@@ -61,26 +61,26 @@
                 android:importantForAutofill="no"
         />
         <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberSigned"
-                android:ems="10"
+                android:inputType="none"
                 android:id="@+id/profBonus"
-                android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@id/checkBoxBarrier"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@+id/checkProficiency"
-                app:layout_constraintBottom_toBottomOf="@+id/checkProficiency" android:textSize="14sp"
+                android:layout_marginStart="10dp" app:layout_constraintStart_toEndOf="@id/checkBoxBarrier"
+                android:textSize="18sp"
                 android:importantForAutofill="no"
-                android:hint="@string/profHint"/>
+                app:layout_constraintBaseline_toBaselineOf="@+id/checkProficiency"
+                android:textColor="@android:color/primary_text_light"/>
         <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:id="@+id/itemBonus"
                 android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@id/checkBoxBarrier"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@+id/checkItem"
-                app:layout_constraintBottom_toBottomOf="@+id/checkItem" android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="14sp"
                 android:importantForAutofill="no"
-                android:hint="@string/itemHint" android:inputType="numberSigned"/>
+                android:hint="@string/itemHint" android:inputType="numberSigned"
+                app:layout_constraintBaseline_toBaselineOf="@+id/checkItem"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"

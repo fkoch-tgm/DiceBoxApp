@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.*;
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
 import at.ac.tgm.fkoch.dicebox.model.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox profCheck;
     private CheckBox itemCheck;
     private Spinner abilityBonus;
-    private EditText profBonus;
+    private TextView profBonus;
     private EditText itemBonus;
     private RadioGroup advGrp;
 
@@ -104,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i(TAG, "onResume: ");
 
         // Setup Spinner
         abilityBonus = findViewById(R.id.abilityBonus);
@@ -114,10 +112,16 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 1; i < AbilityMenuActivity.ABIL_KEYs.length; i++) {
             String desc= getText(AbilityMenuActivity.ABIL_KEYs[i]).toString();
             int ival = p.getInt(desc,0);
-            String val = ival<0?"-":"+"+ival;
+            String val = (ival>=0?"+":"")+ival;
             adapter.add(desc+"("+val+")");
         }
         abilityBonus.setAdapter(adapter);
+
+        // Setup Proficency
+        profBonus = findViewById(R.id.profBonus);
+        int prof = p.getInt(getText(AbilityMenuActivity.ABIL_KEYs[0]).toString(),0);
+        profBonus.setText((prof>=0?"+":"")+prof);
+
     }
 
     /**

@@ -19,7 +19,7 @@
 	<EditText
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:inputType="number"
+			android:inputType="numberSigned|number"
 			android:ems="10"
 			android:id="@+id/editProf"
 			android:layout_marginTop="24dp"
@@ -40,7 +40,7 @@
 	<EditText
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:inputType="number"
+			android:inputType="numberSigned|number"
 			android:ems="10"
 			android:id="@+id/editSTR"
 			app:layout_constraintTop_toBottomOf="@+id/editProf"
@@ -55,7 +55,7 @@
 	<EditText
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:inputType="number"
+			android:inputType="numberSigned|number"
 			android:ems="10"
 			android:id="@+id/editDex"
 			app:layout_constraintTop_toBottomOf="@+id/editSTR"
@@ -70,7 +70,7 @@
 	<EditText
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:inputType="number"
+			android:inputType="numberSigned|number"
 			android:ems="10"
 			android:id="@+id/editCON"
 			app:layout_constraintTop_toBottomOf="@+id/editDex"
@@ -85,7 +85,7 @@
 	<EditText
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:inputType="number"
+			android:inputType="numberSigned|number"
 			android:ems="10"
 			android:id="@+id/editINT"
 			app:layout_constraintTop_toBottomOf="@id/editCON"
@@ -100,7 +100,7 @@
 	<EditText
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:inputType="number"
+			android:inputType="numberSigned|number"
 			android:ems="10"
 			android:id="@+id/editWIS"
 			app:layout_constraintTop_toBottomOf="@id/editINT"
@@ -115,7 +115,7 @@
 	<EditText
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:inputType="number"
+			android:inputType="numberSigned|number"
 			android:ems="10"
 			android:id="@+id/editCHARISMA"
 			app:layout_constraintTop_toBottomOf="@id/editWIS"
