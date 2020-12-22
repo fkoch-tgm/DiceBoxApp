@@ -152,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
                 die = new BasicDiceRoll(20);
         }
 
+        SharedPreferences p = getSharedPreferences(AbilityMenuActivity.PREF_KEY,MODE_PRIVATE);
         // Bonis Ability
         if(abilityCheck.isChecked()) {
             //String txt = abilityBonus.getText().toString();
@@ -159,11 +160,10 @@ public class MainActivity extends AppCompatActivity {
             //die = new BonusMalus(die, getText(R.string.abilityText).toString(), amount);
         }
         if(profCheck.isChecked()) {
-            /*
-            String txt = profBonus.getText().toString();
-            int amount = txt.equals("")?0:Integer.parseInt(txt);
+            //String txt = profBonus.getText().toString();
+            //int amount = txt.equals("")?0:Integer.parseInt(txt);
+            int amount = p.getInt(getText(AbilityMenuActivity.ABIL_KEYs[0]).toString(),0);
             die = new BonusMalus(die, getText(R.string.profText).toString(), amount);
-            */
         }
         if(itemCheck.isChecked()) {
             String txt = itemBonus.getText().toString();
@@ -206,6 +206,7 @@ public class MainActivity extends AppCompatActivity {
         if (checkCrit.isChecked()) dmgDie = new CriticalSuccess(dmgDie);
 
 
+        SharedPreferences p = getSharedPreferences(AbilityMenuActivity.PREF_KEY,MODE_PRIVATE);
         // Bonis Ability
         if(dmgabilityCheck.isChecked()) {
             String txt = dmgabilityBonus.getText().toString();
@@ -213,8 +214,9 @@ public class MainActivity extends AppCompatActivity {
             dmgDie = new BonusMalus(dmgDie, getText(R.string.abilityText).toString(), amount);
         }
         if(dmgprofCheck.isChecked()) {
-            String txt = dmgprofBonus.getText().toString();
-            int amount = txt.equals("")?0:Integer.parseInt(txt);
+            //String txt = profBonus.getText().toString();
+            //int amount = txt.equals("")?0:Integer.parseInt(txt);
+            int amount = p.getInt(getText(AbilityMenuActivity.ABIL_KEYs[0]).toString(),0);
             dmgDie = new BonusMalus(dmgDie, getText(R.string.profText).toString(), amount);
         }
         if(dmgitemCheck.isChecked()) {
