@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox profCheck;
     private CheckBox itemCheck;
     private Spinner abilityBonus;
-    private TextView profBonus;
     private EditText itemBonus;
     private RadioGroup advGrp;
 
@@ -35,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox dmgabilityCheck;
     private CheckBox dmgprofCheck;
     private CheckBox dmgitemCheck;
-    private EditText dmgabilityBonus;
-    private EditText dmgprofBonus;
+    private Spinner dmgabilityBonus;
+    private TextView dmgprofBonus;
     private EditText dmgitemBonus;
 
     private DiceRoll die;
@@ -104,9 +103,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        // Setup Spinner
+        // Setup Spinners
         abilityBonus = findViewById(R.id.abilityBonus);
-        abilityBonus.setAdapter(null);
+        //dmgabilityBonus.setAdapter(null);
+        //abilityBonus.setAdapter(null);
         SharedPreferences p = getSharedPreferences(AbilityMenuActivity.PREF_KEY,MODE_PRIVATE);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item);
         for (int i = 1; i < AbilityMenuActivity.ABIL_KEYs.length; i++) {
@@ -116,11 +116,13 @@ public class MainActivity extends AppCompatActivity {
             adapter.add(desc+"("+val+")");
         }
         abilityBonus.setAdapter(adapter);
+        dmgabilityBonus.setAdapter(adapter);
 
         // Setup Proficency
-        profBonus = findViewById(R.id.profBonus);
+        TextView profBonus = findViewById(R.id.profBonus);
         int prof = p.getInt(getText(AbilityMenuActivity.ABIL_KEYs[0]).toString(),0);
         profBonus.setText((prof>=0?"+":"")+prof);
+        dmgprofBonus.setText((prof>=0?"+":"")+prof);
 
     }
 
@@ -209,10 +211,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences p = getSharedPreferences(AbilityMenuActivity.PREF_KEY,MODE_PRIVATE);
         // Bonis Ability
         if(dmgabilityCheck.isChecked()) {
-            //String txt = dmgabilityBonus.getText().toString();
-            //int amount = txt.equals("")?0:Integer.parseInt(txt);
-            int amount = p.getInt((String) getText(AbilityMenuActivity.ABIL_KEYs[abilityBonus.getSelectedItemPosition()+1]),0);
-            dmgDie = new BonusMalus(dmgDie, getText(R.string.abilityText).toString(), amount);
+            String txt = getText(AbilityMenuActivity.ABIL_KEYs[dmgabilityBonus.getSelectedItemPosition()+1]).toString();
+            int amount = p.getInt(txt,0);
+            dmgDie = new BonusMalus(dmgDie,txt,amount);
         }
         if(dmgprofCheck.isChecked()) {
             //String txt = profBonus.getText().toString();

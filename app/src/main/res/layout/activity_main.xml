@@ -211,29 +211,24 @@
                                                       android:id="@+id/dmgcheckBoxBarrier" app:barrierDirection="right"
                                                       app:constraint_referenced_ids="dmgcheckProficiency,dmgcheckAbility,dmgcheckItem"
                                                       tools:layout_editor_absoluteX="127dp"/>
-            <EditText
+            <Spinner
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="numberSigned"
-                    android:ems="10"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/dmgcheckBoxBarrier" android:layout_marginStart="8dp"
                     app:layout_constraintTop_toTopOf="@+id/dmgcheckAbility"
                     app:layout_constraintBottom_toBottomOf="@id/dmgcheckAbility" android:id="@+id/dmgabilityBonus"
                     android:importantForAutofill="no"
-                    android:hint="@string/abilityHint" android:textSize="14sp"/>
-            <EditText
-                    android:layout_width="0dp"
+            />
+            <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="numberSigned"
-                    android:ems="10"
                     android:id="@+id/dmgprofBonus"
-                    android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@id/dmgcheckBoxBarrier"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/dmgcheckProficiency"
-                    app:layout_constraintBottom_toBottomOf="@+id/dmgcheckProficiency" android:textSize="14sp"
+                    android:layout_marginStart="10dp" app:layout_constraintStart_toEndOf="@id/dmgcheckBoxBarrier"
+                    android:textSize="18sp"
                     android:importantForAutofill="no"
-                    android:hint="@string/profHint"/>
+                    app:layout_constraintBaseline_toBaselineOf="@+id/dmgcheckProficiency"
+                    android:textColor="@android:color/primary_text_light"/>
             <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -264,7 +259,7 @@
                 app:layout_constraintTop_toBottomOf="@id/dmgVbarrier"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorPrimary" android:textAlignment="center"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/dmgDescription"
