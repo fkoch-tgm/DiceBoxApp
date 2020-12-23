@@ -155,9 +155,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences p = getSharedPreferences(AbilityMenuActivity.PREF_KEY,MODE_PRIVATE);
         // Bonis Ability
         if(abilityCheck.isChecked()) {
-            //String txt = abilityBonus.getText().toString();
-            //int amount = txt.equals("")?0:Integer.parseInt(txt);
-            //die = new BonusMalus(die, getText(R.string.abilityText).toString(), amount);
+            String txt = getText(AbilityMenuActivity.ABIL_KEYs[abilityBonus.getSelectedItemPosition()+1]).toString();
+            int amount = p.getInt(txt,0);
+            die = new BonusMalus(die,txt,amount);
         }
         if(profCheck.isChecked()) {
             //String txt = profBonus.getText().toString();
@@ -209,8 +209,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences p = getSharedPreferences(AbilityMenuActivity.PREF_KEY,MODE_PRIVATE);
         // Bonis Ability
         if(dmgabilityCheck.isChecked()) {
-            String txt = dmgabilityBonus.getText().toString();
-            int amount = txt.equals("")?0:Integer.parseInt(txt);
+            //String txt = dmgabilityBonus.getText().toString();
+            //int amount = txt.equals("")?0:Integer.parseInt(txt);
+            int amount = p.getInt((String) getText(AbilityMenuActivity.ABIL_KEYs[abilityBonus.getSelectedItemPosition()+1]),0);
             dmgDie = new BonusMalus(dmgDie, getText(R.string.abilityText).toString(), amount);
         }
         if(dmgprofCheck.isChecked()) {
